@@ -51,10 +51,9 @@ class ApplicationController < Sinatra::Base
   end
 
   #delete
-  delete "/articles/:id/delete" do
-    Article.destroy(params[:id])
+  delete '/articles/:id/delete' do
+    @articles = Article.find(params["id"])
     @articles.destroy
     erb :delete
   end
-
 end 
